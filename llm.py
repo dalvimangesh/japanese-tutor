@@ -13,7 +13,7 @@ def generate_response(japanese_sentence):
         'Content-Type': 'application/json'
     }
     
-    question = japanese_sentence + prompt
+    question = 'Given sentence: "' + japanese_sentence + '", ' + prompt
 
     data = {
         "contents": [{
