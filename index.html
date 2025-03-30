@@ -25,9 +25,18 @@
                 },
                 body: JSON.stringify({ text })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById('response').innerText = data.message;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('response').innerText = 'Error: ' + error.message;
             });
         });
     </script>
