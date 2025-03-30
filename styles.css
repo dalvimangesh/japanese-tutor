@@ -47,37 +47,12 @@ button:hover {
 
 @media (max-width: 600px) {
     body {
-        margin: 20px;
+        margin: 5px;
     }
 
-    input[type="text"] {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
+    input[type="text"],
     button {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-} 
-
-@media (max-width: 600px) {
-    body {
-        margin: 20px;
-    }
-
-    input[type="text"] {
-        width: 100%;
         box-sizing: border-box;
-    }
-
-    button {
-        width: 100%;
         margin-top: 10px;
     }
 
