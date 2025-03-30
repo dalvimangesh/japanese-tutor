@@ -1,9 +1,9 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     height: 100vh;
-    margin: 0;
+    margin: 100px;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
 }
@@ -43,4 +43,46 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
     color: #333;
+}
+
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
 } 
+
+@media (max-width: 600px) {
+    body {
+        margin: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
