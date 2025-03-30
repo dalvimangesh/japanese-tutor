@@ -13,12 +13,14 @@
             <button type="submit">Submit</button>
         </form>
         <div id="response"></div>
+        <div id="loading" style="display: none;">Loading...</div>
     </div>
     <script>
         document.getElementById('textForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const text = document.getElementById('textInput').value;
-            fetch('http://127.0.0.1:9999/submit', {
+            document.getElementById('loading').style.display = 'block';
+            fetch('/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -37,6 +39,9 @@
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
                 document.getElementById('response').innerText = 'Error: ' + error.message;
+            })
+            .finally(() => {
+                document.getElementById('loading').style.display = 'none';
             });
         });
     </script>
