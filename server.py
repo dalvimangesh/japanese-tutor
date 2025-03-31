@@ -13,6 +13,10 @@ def serve_index():
 def hello_world():
     return jsonify(message="Hello, World!")
 
+@app.route('/health', methods=['GET'])
+def health():
+    return "OK"
+
 @app.route('/submit', methods=['POST'])
 def submit_text():
     data = request.json
