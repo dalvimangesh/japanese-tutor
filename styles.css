@@ -35,6 +35,10 @@ button {
     margin-left: 10px;
 }
 
+button:first-of-type {
+    margin-left: 10px;
+}
+
 button:hover {
     background-color: #0056b3;
 }

@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-from llm import generate_response
+from llm import generate_random_japanese_sentence, generate_response
 app = Flask(__name__)
 
 CORS(app)
@@ -11,7 +11,10 @@ def serve_index():
 
 @app.route('/', methods=['POST'])
 def hello_world():
-    return jsonify(message="Hello, World!")
+    response_text = generate_response(generate_random_japanese_sentence())
+    
+    # Return the response from generate_response
+    return jsonify(message=response_text)
 
 @app.route('/health', methods=['GET'])
 def health():

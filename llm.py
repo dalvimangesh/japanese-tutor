@@ -1,5 +1,5 @@
 import requests
-from prompt import prompt
+from prompt import RandomJapanesePrompt, prompt
 import os
 from dotenv import load_dotenv
 
@@ -18,6 +18,23 @@ def generate_response(japanese_sentence):
     data = {
         "contents": [{
             "parts": [{"text": question}]
+        }]
+    }
+
+    response = requests.post(url, headers=headers, json=data)
+
+    return response.json()['candidates'][0]['content']['parts'][0]['text']
+
+def generate_random_japanese_sentence():
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={API_KEY}"
+    headers = {
+        'Content-Type': 'application/json'
+    }
+
+    data = {
+        "contents": [{
+            "parts": [{"text": RandomJapanesePrompt}]
         }]
     }
 
