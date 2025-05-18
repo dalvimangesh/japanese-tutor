@@ -12,6 +12,7 @@
             <input type="text" id="textInput" placeholder="Enter text here">
             <button type="submit">Submit</button>
             <button type="button" id="helloButton">Generate sentences</button>
+            <button type="button" id="helloWorldButton">Translate Report</button>
         </form>
         <div id="response"></div>
         <div id="loading" style="display: none;">Loading...</div>
@@ -54,6 +55,30 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({})
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('response').innerText = data.message;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('response').innerText = 'Error: ' + error.message;
+            })
+            .finally(() => {
+                document.getElementById('loading').style.display = 'none';
+            });
+        });
+
+        document.getElementById('helloWorldButton').addEventListener('click', function() {
+            document.getElementById('loading').style.display = 'block';
+            const text = document.getElementById('textInput').value;
+            fetch(`/hello?text=${encodeURIComponent(text)}`, {
+                method: 'GET'
             })
             .then(response => {
                 if (!response.ok) {
