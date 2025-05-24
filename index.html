@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <div id="loading" style="display: none; margin-bottom: 10px;">Loading...</div>
         <form id="textForm">
             <div class="input-container">
                 <input type="text" id="textInput" placeholder="Enter text here">
@@ -21,7 +22,6 @@
             <button type="button" id="helloWorldButton">Translate Report</button>
         </form>
         <div id="response"></div>
-        <div id="loading" style="display: none;">Loading...</div>
     </div>
     <script>
         document.getElementById('textForm').addEventListener('submit', function(event) {
