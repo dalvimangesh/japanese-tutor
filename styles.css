@@ -40,13 +40,38 @@ button:first-of-type {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e4ecf5;
 }
 
 #response {
     margin-top: 20px;
     font-size: 18px;
     color: #333;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.clear-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #666;
+}
+
+.clear-button:hover {
+    color: #333;
+}
+
+#textInput {
+    padding-right: 30px;
 }
 
 @media (max-width: 600px) {
